@@ -19,13 +19,14 @@ namespace ORM_Dapper
 
             IDbConnection conn = new MySqlConnection(connString);
 
-            var repo = new DapperDepartmentRepository(conn);
+            
+            var repo = new DapperProductRepository(conn);
 
-            var departments = repo.GetAllDepartments();
+            var product = repo.GetAllProducts();
 
-            foreach (var dept in departments)
+            foreach (var prod in product)
             {
-                Console.WriteLine($"{dept.DepartmentID} {dept.Name}");
+                Console.WriteLine($"{prod.CategoryID} {prod.Name} {prod.Price}{prod.StockLevel}{prod.OnSale} {prod.ProductID}");
             }
         }
     }
